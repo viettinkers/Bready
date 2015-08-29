@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge
+<com.viettinkers.bready.StepView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <TextView
@@ -45,4 +45,4 @@
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/end_time"
         android:layout_toEndOf="@+id/end_time" />
-</merge>
+</com.viettinkers.bready.StepView>

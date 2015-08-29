@@ -27,6 +27,7 @@ public class BreadsFragment extends Fragment {
         BreadView breadView = (BreadView) mLayoutInflater.inflate(
                 R.layout.bread, mBreadsContainer, false);
         breadView.bindModel(null);
+        mBreadsContainer.addView(breadView);
     }
 
     @Override

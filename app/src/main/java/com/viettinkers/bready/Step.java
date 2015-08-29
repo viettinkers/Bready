@@ -89,6 +89,9 @@ public class Step extends CountDownTimer {
 
     public String getTimeLeft() {
         String timeLeft = "";
+        if (mStartTime == null || mEndTime == null) {
+            return "";
+        }
         Date now = new Date();
         if (now.after(mEndTime)) {
             return "Done";

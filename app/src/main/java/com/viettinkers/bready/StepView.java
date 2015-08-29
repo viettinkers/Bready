@@ -3,6 +3,7 @@ package com.viettinkers.bready;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -11,26 +12,34 @@ import android.widget.TextView;
  * Step view.
  */
 public class StepView extends RelativeLayout {
+    private LayoutInflater mLayoutInflater;
     private TextView mStartTimeText;
     private TextView mEndTimeText;
     private TextView mNameText;
     private TextView mTimeLeftText;
     private Step mStepModel;
 
-    public StepView(Context context, Step stepModel) {
+    public StepView(Context context, LayoutInflater layoutInflater, Step stepModel) {
         super(context, null);
         mStepModel = stepModel;
-        inflate(getContext(), R.layout.step, this);
+        mLayoutInflater = layoutInflater;
+        init();
     }
 
-    @Override
-    public void onFinishInflate() {
+    private void init() {
+        inflate(getContext(), R.layout.step, this);
         mStartTimeText = (TextView) findViewById(R.id.start_time);
         mEndTimeText = (TextView) findViewById(R.id.end_time);
         mNameText = (TextView) findViewById(R.id.step_name);
         mTimeLeftText = (TextView) findViewById(R.id.time_left);
         mNameText.setText(mStepModel.getTitle());
-        super.onFinishInflate();
+        //updateTimeTexts();
+    }
+
+    @Override
+    public void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        getLayoutParams().height = (int) getResources().getDimension(R.dimen.step_height);
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
     public void updateTimeTexts() {
