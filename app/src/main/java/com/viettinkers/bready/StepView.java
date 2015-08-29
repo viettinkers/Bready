@@ -17,8 +17,10 @@ public class StepView extends RelativeLayout {
     private TextView mTimeLeftText;
     private Step mStepModel;
 
-    public StepView(Context context, AttributeSet attrs) {
-        super(context, attrs);
+    public StepView(Context context, Step stepModel) {
+        super(context, null);
+        mStepModel = stepModel;
+        inflate(getContext(), R.layout.step, this);
     }
 
     @Override
@@ -27,12 +29,8 @@ public class StepView extends RelativeLayout {
         mEndTimeText = (TextView) findViewById(R.id.end_time);
         mNameText = (TextView) findViewById(R.id.step_name);
         mTimeLeftText = (TextView) findViewById(R.id.time_left);
+        mNameText.setText(mStepModel.getTitle());
         super.onFinishInflate();
-    }
-
-    public void bindModel(Step step) {
-        mStepModel = step;
-        mNameText.setText(step.getTitle());
     }
 
     public void updateTimeTexts() {

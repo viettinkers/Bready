@@ -21,8 +21,7 @@ public class BreadModel {
 
     private void createDefaultSteps() {
         mSteps = new ArrayList<>();
-        Step newStep = new Step("Prepare flour", 30000L, mStepListener, null);
-        mSteps.add(newStep);
+        mSteps.add(new Step("Prepare flour", 30000L, mStepListener, null));
         mSteps.add(new Step("Mix flour", 30000L, mStepListener, null));
         mSteps.add(new Step("Wait for the dough", 30000L, mStepListener, null));
         mSteps.add(new Step("Prepare flour", 30000L, mStepListener, null));

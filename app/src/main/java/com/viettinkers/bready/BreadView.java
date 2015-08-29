@@ -1,11 +1,9 @@
 package com.viettinkers.bready;
 
 import android.content.Context;
-import android.support.v7.widget.LinearLayoutManager;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import java.util.List;
@@ -15,7 +13,6 @@ import java.util.List;
  */
 public class BreadView extends LinearLayout implements Step.StepListener {
     private BreadModel mModel;
-    private Context mContext;
 
     private LinearLayout mStepsContainer;
     private View mStartButton;
@@ -23,7 +20,6 @@ public class BreadView extends LinearLayout implements Step.StepListener {
 
     public BreadView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        mContext = context;
     }
 
     @Override
@@ -43,8 +39,8 @@ public class BreadView extends LinearLayout implements Step.StepListener {
     public void bindModel(List<Step> steps) {
         mModel = new BreadModel(this, steps);
         for (Step step : mModel.getSteps()) {
-            StepView stepView = (StepView) inflate(mContext, R.layout.bake_step, this);
-            stepView.bindModel(step);
+            StepView stepView = new StepView(getContext(), step);
+            addView(stepView);
         }
     }
 
