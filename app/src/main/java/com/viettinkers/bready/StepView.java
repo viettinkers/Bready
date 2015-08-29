@@ -5,40 +5,41 @@ import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 /**
  * Step view.
  */
-public class StepView extends RelativeLayout {
-    private LayoutInflater mLayoutInflater;
+public class StepView extends LinearLayout {
     private TextView mStartTimeText;
     private TextView mEndTimeText;
     private TextView mNameText;
     private TextView mTimeLeftText;
     private Step mStepModel;
 
-    public StepView(Context context, LayoutInflater layoutInflater, Step stepModel) {
-        super(context, null);
-        mStepModel = stepModel;
-        mLayoutInflater = layoutInflater;
-        init();
+    public StepView(Context context, AttributeSet attrs) {
+        super(context, attrs);
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.step, this);
+    @Override
+    public void onFinishInflate() {
         mStartTimeText = (TextView) findViewById(R.id.start_time);
         mEndTimeText = (TextView) findViewById(R.id.end_time);
         mNameText = (TextView) findViewById(R.id.step_name);
         mTimeLeftText = (TextView) findViewById(R.id.time_left);
+        super.onFinishInflate();
+    }
+
+    public void bindModel(Step stepModel) {
+        mStepModel = stepModel;
         mNameText.setText(mStepModel.getTitle());
         //updateTimeTexts();
     }
 
     @Override
     public void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        getLayoutParams().height = (int) getResources().getDimension(R.dimen.step_height);
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 

@@ -25,6 +25,6 @@
         android:layout_height="wrap_content"
         android:text="Let VA &amp; P know when this is done."
         android:id="@+id/inform_done"
-        android:visibility="gone" />
+        android:visibility="visible" />
 
 </merge>

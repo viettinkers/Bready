@@ -24,8 +24,7 @@ public class BreadsFragment extends Fragment {
     }
 
     private void loadBreads() {
-        BreadView breadView = (BreadView) mLayoutInflater.inflate(
-                R.layout.bread, mBreadsContainer, false);
+        BreadView breadView = new BreadView(getContext(), mLayoutInflater);
         breadView.bindModel(null);
         mBreadsContainer.addView(breadView);
     }
@@ -35,12 +34,12 @@ public class BreadsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.breads_fragment, container, false);
         mBreadsContainer = (ViewGroup) view.findViewById(R.id.breads_container);
+        mLayoutInflater = getLayoutInflater(savedInstanceState);
         return view;
     }
 
     @Override
     public void onActivityCreated (Bundle savedInstanceState) {
-        mLayoutInflater = getLayoutInflater(savedInstanceState);
         loadBreads();
         super.onActivityCreated(savedInstanceState);
     }

@@ -41,8 +41,10 @@ public class BreadView extends LinearLayout implements Step.StepListener {
     public void bindModel(List<Step> steps) {
         mModel = new BreadModel(this, steps);
         for (Step step : mModel.getSteps()) {
-            StepView stepView = new StepView(getContext(), mLayoutInflater, step);
-            mStepsContainer.addView(stepView);
+            StepView stepView =
+                    (StepView) mLayoutInflater.inflate(R.layout.step, mStepsContainer)
+                            .findViewById(R.id.step);
+            stepView.bindModel(step);
         }
     }
 
