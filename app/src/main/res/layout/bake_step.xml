@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.viettinkers.bready.StepView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        style="@style/StepTimeStamp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="10:10am"
+        android:id="@+id/start_time"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        style="@style/StepTimeStamp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="1:20pm"
+        android:id="@+id/end_time"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        style="@style/StepName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Preparing the dough"
+        android:id="@+id/step_name"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/start_time"
+        android:layout_toEndOf="@+id/start_time" />
+
+    <TextView
+        style="@style/StepTimeLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="60 minutes left"
+        android:id="@+id/time_left"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/end_time"
+        android:layout_toEndOf="@+id/end_time" />
+</com.viettinkers.bready.StepView>
